@@ -7,7 +7,10 @@ let counter = 0;
 
 const createBoxes = () => {
   let amount = Number(numberInput.value.trim());
-  for (let i = 1; i <= amount; i++) {
+  if (amount <= 0) {
+    alert("Введіть, будь-ласка, число більше за 0!")
+  } else {
+    for (let i = 1; i <= amount; i++) {
     const newBox = document.createElement("div");
     boxes.append(newBox);
     newBox.style.backgroundColor = `${getRandomHexColor()}`;
@@ -15,6 +18,7 @@ const createBoxes = () => {
     newBox.style.width = `${boxSize}px`;
     newBox.style.height = `${boxSize}px`;
     numberInput.value = "";
+  }
   }
 };
 
